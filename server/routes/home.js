@@ -1,16 +1,16 @@
 const express = require('express')
 
-const db = require('../db/fruits')
+const db = require('../db/home')
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  db.getFruits()
-    .then(results => {
-      res.json({ fruits: results.map(fruit => fruit.name) })
+  db.getHome()
+    .then((results) => {
+      res.json({ fruits: results.map((home) => home.name) })
       return null
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err)
       res.status(500).json({ message: 'Somthing went wrong' })
     })

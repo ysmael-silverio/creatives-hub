@@ -1,23 +1,26 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchFruits, selectFruits } from '../slices/fruits'
+import { fetchHome, selectHome } from '../slices/home'
+import Logo from './Logo'
 
 function App() {
-  const fruits = useSelector(selectFruits)
+  const homes = useSelector(selectHome)
   const dispatch = useDispatch()
 
   useEffect(async () => {
-    await dispatch(fetchFruits())
+    await dispatch(fetchHome())
   }, [])
 
   return (
     <>
       <div className="app">
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
+        <Logo />
+        <h1>The Creatives Hub</h1>
+        <img src="../images/Level.png" alt="logo"></img>
         <ul>
-          {fruits.map((fruit) => (
-            <li key={fruit}>{fruit}</li>
+          {homes.map((home) => (
+            <li key={home}>{home}</li>
           ))}
         </ul>
       </div>
