@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import fruits from './slices/fruits'
+import fruits from './slices/home'
 
 const store = configureStore({
   reducer: {
